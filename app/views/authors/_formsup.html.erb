@@ -1,0 +1,16 @@
+<%= form_with model: @suppliers, url: "/authors/supplier_create"  do |form| %>
+<%#= form_with model: @books, url: "/authors/book_create"  do |form| %>
+
+
+<div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% @suppliers.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

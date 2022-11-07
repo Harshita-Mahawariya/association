@@ -1,0 +1,27 @@
+<center><h3>Account Table</h3>
+<table>
+  <% @accounts.each do |account| %>
+    <% if account.present? %>
+      <tr>
+        <th>Account Id</th>
+        <th>Supplier name</th>
+        <th>Account number</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      <tr>
+        <td><%= account.id %></td>
+        <td><%= account&.supplier&.name %></td>
+        <td><%= account.account_number %></td>
+        <td><%= link_to "Account edit", account_edit_author_path(account.id)%></td>
+        <td><%= link_to "Account destroy", account_destroy_author_path(account.id), method: :delete%></td>
+      </tr>
+    <% else %>
+      <%= "Account not found" %>
+    <% end %>
+  <% end %>
+</table>
+<br>
+<br>
+<%= link_to "Account new", account_new_authors_path%>
+</center>

@@ -1,0 +1,35 @@
+<center><h2>AUTHOR TABLE</h2>
+<table>
+  <%#byebug%>
+  <%#= image_tag "#{Rails.root}/app/assets/images/Harshita1.jpg" %>
+  <img src = <%="/assets/ganesha.jpg"%> >
+  <img src = <%#="https://www.google.com/search?q=cartoon&client=ubuntu&hs=Kwk&channel=fs&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj_h5GCgZb6AhVI7zgGHV-PDnkQ_AUoA3oECAIQBQ&biw=1694&bih=887&dpr=1.09#imgrc=mbHwW2H--UHwVM"%> >
+    
+    <%#doc upload like resume >
+  <%#= form_with model: @person do |form| %>
+  <%#= form.file_field :picture %>
+  <%# end %>
+  
+  <% @authors.each do |author| %>
+    <% if author.present? %>
+      <tr>
+        <th>Author Id</th>
+        <th>Author Name</th>
+        <th> Edit</th>
+        <th>destroy</th>
+      </tr>
+      <tr>
+        <td><%= author.id %></td>
+        <td><%= author.name %></td>
+        <td><%= link_to "Author edit", edit_author_path(author.id)%></td>
+        <td><%= link_to "Author destroy", author_destroy_path(author.id), method: :delete%></td>
+      </tr>
+    <% else %>
+      <%= "Author not found" %>
+    <% end %>
+  <% end %>
+</table>
+<br>
+<br>
+<%= link_to "Author new", new_author_path%>
+</center>

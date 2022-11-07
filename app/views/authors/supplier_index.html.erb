@@ -1,0 +1,25 @@
+<center><h2> SUPPLIER TABLE</h2>
+<table>
+  <% @suppliers.each do |supplier| %>
+    <% if supplier.present? %>
+        <tr>
+        <th>Supplier Id</th>
+        <th>Supplier Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      <tr>
+        <td><%= supplier.id %></td>
+        <td><%= supplier.name %></td>
+        <td><%= link_to "Supplier edit", supplier_edit_author_path(supplier.id)%></td>
+        <td><%= link_to "Supplier destroy", supplier_destroy_author_path(supplier.id), method: :delete%></td>
+      </tr>
+    <% else %>
+      <%= "Supplier not found" %>
+    <% end %>
+  <% end %>
+</table>
+<br>
+<br>
+<%= link_to "Supplier new", supplier_new_authors_path%>
+</center>

@@ -1,0 +1,22 @@
+<center><h1>Association_index_page & Author_contoller</h1>
+<table>
+	<tr>
+		<th> To view Authors table click here.</th>
+		<th>To view Books table click here.</th>
+		<th>To view Supplier table click here.</th>
+		<th>To view Accounts table click here.</th>
+	</tr>
+	<tr>
+		<td><%= link_to 'AUTHOR', author_index_authors_path%></td>
+		<td><%= link_to 'BOOK', book_index_authors_path%></td>
+		<td><%= link_to 'SUPPLIER', supplier_index_authors_path%></td>
+		<td><%= link_to 'ACCOUNT', account_index_authors_path%></td>
+	</tr>
+	<tr>
+    <td><%= link_to "Author new", new_author_path%></td>
+    <td><%= link_to "Book new", book_new_authors_path%></td>
+    <td><%= link_to "Supplier new", supplier_new_authors_path%></td>
+    <td><%= link_to "Account new", account_new_authors_path%></td>
+  </tr>
+</table>
+</center>

@@ -1,0 +1,26 @@
+
+<%= form_with model: @books, url: "/authors/book_create"  do |form| %>
+
+
+<div>
+  <%= form.label :author %><br>
+  <%= form.select :author_id, options_for_select(Author.all.map{|b| [b.name, b.id]}) %><br>
+  <% @books.errors.full_messages_for(:author_id).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+</div>
+
+<div>
+    <%= form.label :published_at %><br>
+    <%= form.text_field :published_at %>
+    <% @books.errors.full_messages_for(:published_at).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
