@@ -1,0 +1,29 @@
+<center><h2>BOOK TABLE</h2>
+<table>
+  <% @books.each do |book| %>
+    <% if book.present? %>
+      <tr>
+        <th>Book Id</th>
+        <th>Author Name</th>
+        <th>Author Id</th>
+        <th>Publish date</th>
+        <th>Edit</th>
+        <th>Destroy</th>
+      </tr>
+      <tr>
+        <td><%= book.id %></td>
+        <td><%= book&.author&.name %></td>
+        <td><%= book&.author&.id %></td>
+        <td><%= book.published_at %></td>
+        <td><%= link_to "Book edit", book_edit_author_path(book.id)%></td>
+        <td><%= link_to "Book destroy", book_destroy_author_path(book.id), method: :delete%></td>
+      </tr>
+    <% else %>
+      <%= "BOOK not found" %>
+    <% end %>
+  <% end %>
+</table>
+<br>
+<br>
+<%= link_to "Book new", book_new_authors_path%>
+</center>
